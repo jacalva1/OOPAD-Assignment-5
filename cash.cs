@@ -1,26 +1,38 @@
+// Walker Chesley
+// Laith Alfaloujeh
+// Jeniece Calva
+// 2 - Class Cash
+
 using System;
 
 namespace Assignment_5
 {
-    class Cash
+     public abstract string GetPaymentType();
+
     {
-        double tenderdCash; 
-        double change; 
-
-        ///<summary>
-        ///  updates the change attribute, and returns the change. Change = tenderedCash – payment amount. Note that amount in base class (Payment) is private (not protected and not public)
-        ///</summary>
-        double calcChange()
-        {
-
-        }
-
-        ///<summary>
-        ///  overrides the base abstract class method,returns the string “Cash” that represents the payment type of this class. To be used when displaying Payment types, like in getBillInfo()
-        ///</summary>
-        string getPaymentType()
-        {
-
-        }
+      class Cash: Payment
     }
-}
+
+        {
+          double tenderdCash;
+          double change;
+        }
+        public Cash(double a, string d, double t) : base(a,d)
+        {
+         
+          this.tenderdCash = t;
+         
+        }
+        
+        public double CalcChange()
+        {
+          return tenderdCash - GetAmount();
+        }
+
+        public override string GetPaymentType()
+        {
+          return "Cash";
+        }
+
+        
+  }
